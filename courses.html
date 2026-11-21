@@ -1,0 +1,396 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>FUTURE LABS AFRI-SCHOOL of TECH</title>
+
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/script.js" defer></script>
+</head>
+
+<body>
+
+    <!-- HEADER AND NAVIGATION -->
+    <header class="site-header">
+        <div class="container header-content">
+
+            <a href="index.html" class="logo">
+                FUTURE LABS
+                <span>AFRI-SCHOOL of TECH</span>
+            </a>
+
+            <button
+                type="button"
+                id="menu-button"
+                class="menu-button"
+                aria-label="Toggle navigation"
+                aria-controls="navigation"
+                aria-expanded="false">
+                ☰
+            </button>
+
+            <nav id="navigation">
+                <a href="index.html" class="active" aria-current="page">
+                    Home
+                </a>
+                <a href="about.html">About Us</a>
+                <a href="courses.html">Courses</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+        </div>
+    </header>
+
+    <main>
+
+        <!-- HERO SECTION -->
+        <section class="hero">
+            <div class="container">
+                <p class="tagline">Equip Talent, Shape Tomorrow</p>
+
+                <h1>FUTURE LABS AFRI-SCHOOL of TECH</h1>
+
+                <p>
+                    Welcome to our student management website.
+                    Register students, manage their records and
+                    monitor their academic performance.
+                </p>
+
+                <a href="#registration" class="button">
+                    Register a Student
+                </a>
+            </div>
+        </section>
+
+        <!-- DASHBOARD STATISTICS -->
+        <section class="dashboard section">
+            <div class="container">
+                <h2>Student Dashboard</h2>
+                <p>An overview of all registered students.</p>
+
+                <div class="statistics">
+
+                    <article class="stat-card">
+                        <h3>Total Students</h3>
+                        <p id="total-students">0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Students Passed</h3>
+                        <p id="passed-students">0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Students Failed</h3>
+                        <p id="failed-students">0</p>
+                    </article>
+
+                    <article class="stat-card">
+                        <h3>Average Marks</h3>
+                        <p id="average-marks">0.00%</p>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- STUDENT REGISTRATION -->
+        <section id="registration" class="registration section">
+            <div class="container">
+                <h2>Student Registration</h2>
+                <p>Complete all fields to register a student.</p>
+
+                <form id="student-form" novalidate>
+                    <div class="form-grid">
+
+                        <div class="form-group">
+                            <label for="student-name">
+                                Student Full Name
+                            </label>
+
+                            <input
+                                type="text"
+                                id="student-name"
+                                name="studentName"
+                                placeholder="Enter student full name"
+                                autocomplete="name"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="student-age">Age</label>
+
+                            <input
+                                type="number"
+                                id="student-age"
+                                name="studentAge"
+                                placeholder="Enter age"
+                                min="1"
+                                step="1"
+                                required>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="student-gender">Gender</label>
+
+                            <select
+                                id="student-gender"
+                                name="studentGender"
+                                required>
+
+                                <option value="">Select gender</option>
+                                <option value="Male">Male</option>
+                                <option value="Female">Female</option>
+                                <option value="Other">Other</option>
+                                <option value="Prefer not to say">
+                                    Prefer not to say
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="student-course">Course</label>
+
+                            <select
+                                id="student-course"
+                                name="studentCourse"
+                                required>
+
+                                <option value="">Select a course</option>
+
+                                <option value="Software Development">
+                                    Software Development
+                                </option>
+
+                                <option value="Web Design">
+                                    Web Design
+                                </option>
+
+                                <option value="Data Analysis">
+                                    Data Analysis
+                                </option>
+
+                                <option value="Cyber Security">
+                                    Cyber Security
+                                </option>
+
+                                <option value="Networking">
+                                    Networking
+                                </option>
+
+                                <option value="Graphic Design">
+                                    Graphic Design
+                                </option>
+                            </select>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="student-marks">
+                                Marks (0–100)
+                            </label>
+
+                            <input
+                                type="number"
+                                id="student-marks"
+                                name="studentMarks"
+                                placeholder="Enter marks"
+                                min="0"
+                                max="100"
+                                step="any"
+                                required>
+                        </div>
+
+                    </div>
+
+                    <!-- JavaScript will display feedback here. -->
+                    <p
+                        id="registration-message"
+                        class="feedback"
+                        role="status"
+                        aria-live="polite">
+                    </p>
+
+                    <button type="submit" class="button">
+                        Register Student
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- STUDENT RECORDS AND SEARCH -->
+        <section class="records section">
+            <div class="container">
+                <h2>Student Records</h2>
+
+                <div class="records-tools">
+
+                    <div class="form-group">
+                        <label for="search-student">
+                            Search by student name
+                        </label>
+
+                        <input
+                            type="search"
+                            id="search-student"
+                            placeholder="Type a student name">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="filter-course">
+                            Filter by course
+                        </label>
+
+                        <select id="filter-course">
+                            <option value="">All courses</option>
+
+                            <option value="Software Development">
+                                Software Development
+                            </option>
+
+                            <option value="Web Design">
+                                Web Design
+                            </option>
+
+                            <option value="Data Analysis">
+                                Data Analysis
+                            </option>
+
+                            <option value="Cyber Security">
+                                Cyber Security
+                            </option>
+
+                            <option value="Networking">
+                                Networking
+                            </option>
+
+                            <option value="Graphic Design">
+                                Graphic Design
+                            </option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="sort-students">
+                            Sort students
+                        </label>
+
+                        <select id="sort-students">
+                            <option value="default">
+                                Registration order
+                            </option>
+
+                            <option value="highest">
+                                Highest marks first
+                            </option>
+
+                            <option value="lowest">
+                                Lowest marks first
+                            </option>
+                        </select>
+                    </div>
+
+                </div>
+
+                <p id="records-message" role="status" aria-live="polite">
+                    No students registered yet.
+                </p>
+
+                <div class="table-container">
+                    <table>
+                        <caption>Registered Student Information</caption>
+
+                        <thead>
+                            <tr>
+                                <th scope="col">Full Name</th>
+                                <th scope="col">Age</th>
+                                <th scope="col">Gender</th>
+                                <th scope="col">Course</th>
+                                <th scope="col">Marks</th>
+                                <th scope="col">Performance</th>
+                                <th scope="col">Actions</th>
+                            </tr>
+                        </thead>
+
+                        <!-- JavaScript will insert student rows here. -->
+                        <tbody id="student-table-body"></tbody>
+                    </table>
+                </div>
+
+                <button
+                    type="button"
+                    id="clear-students"
+                    class="button danger-button">
+                    Clear All Students
+                </button>
+
+            </div>
+        </section>
+
+        <!-- PERFORMANCE SUMMARY -->
+        <section class="performance section">
+            <div class="container">
+                <h2>Student Performance Summary</h2>
+
+                <div class="summary-cards">
+
+                    <article class="summary-card">
+                        <h3>Highest Performing Student</h3>
+                        <p id="highest-student">No records available.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Lowest Performing Student</h3>
+                        <p id="lowest-student">No records available.</p>
+                    </article>
+
+                    <article class="summary-card">
+                        <h3>Overall Class Performance</h3>
+                        <p id="class-performance">No records available.</p>
+                    </article>
+
+                </div>
+
+                <h3>Performance Classification</h3>
+
+                <ul class="performance-guide">
+                    <li>80–100: Excellent</li>
+                    <li>70 to below 80: Very Good</li>
+                    <li>60 to below 70: Good</li>
+                    <li>50 to below 60: Average</li>
+                    <li>Below 50: Failed</li>
+                </ul>
+
+                <p class="notice">
+                    Student records are stored temporarily while this
+                    page is open. Refreshing or leaving the page
+                    resets the records.
+                </p>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer">
+        <div class="container">
+            <h2>FUTURE LABS AFRI-SCHOOL of TECH</h2>
+            <p>Equip Talent, Shape Tomorrow</p>
+
+            <nav aria-label="Footer navigation">
+                <a href="index.html">Home</a>
+                <a href="about.html">About Us</a>
+                <a href="courses.html">Courses</a>
+                <a href="contact.html">Contact</a>
+            </nav>
+
+            <p>
+                &copy; 2026 FUTURE LABS AFRI-SCHOOL of TECH.
+                All rights reserved.
+            </p>
+        </div>
+    </footer>
+
+</body>
+</html>
